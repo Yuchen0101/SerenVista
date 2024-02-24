@@ -1,0 +1,85 @@
+.btn {
+  //Change for the <button> element
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+  &--animated {
+    animation: moveInButton 0.5s ease-out 0.75s;
+    /* style of 0% will be applied to the element before the animation starts */
+    animation-fill-mode: backwards;
+  }
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba($color-black, 0.2);
+
+    /* style the pseudo-element when hover */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &:active {
+    /* less shifted-above and blur when being clicked */
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba($color-black, 0.2);
+  }
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    padding: 1.5rem 4rem;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  /* overlapping pseudo element */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* tune the z-index */
+    z-index: -1;
+    /* original state */
+    transition: all, 0.4s;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color_primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}

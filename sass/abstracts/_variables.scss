@@ -1,0 +1,40 @@
+// Colors
+$color-primary: #20c997;
+$color-primary-light: #96f2d7;
+$color-primary-dark: #099268;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+// Font
+$default-font-size: 1.6rem;
+
+// GRID
+$grid-width: 165rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 4rem;
+
+// Media-query
+$breakpoints: (
+  "phone": (
+    32rem,
+    48rem,
+  ),
+  "pad": (
+    48rem,
+    77rem,
+  ),
+);

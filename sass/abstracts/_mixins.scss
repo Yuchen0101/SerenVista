@@ -1,0 +1,23 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    // display: table is just a standard property;
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin respondTo($breakname) {
+  $bp: map-get($breakpoints, $breakname);
+  @if type-of($bp) == "list" {
+    $min: nth($bp, 1);
+    $max: nth($bp, 2);
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}

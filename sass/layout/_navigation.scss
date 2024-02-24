@@ -1,0 +1,133 @@
+.navigation {
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover span::before {
+      transform: translateY(-2px);
+    }
+    &:hover span::after {
+      transform: translateY(2px);
+    }
+  }
+  &__icon {
+    position: relative;
+    &,
+    &::before,
+    &::after {
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      transition: all 0.3s;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1rem;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      left: 0;
+    }
+  }
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 10;
+    transition: all 0.8s;
+  }
+  &__nav {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  &__item {
+    margin: 1rem;
+    &--staff {
+      transform: skewX(160deg);
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      display: inline-block;
+      padding: 1rem;
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-white;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 235%;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      background-position: 100%;
+      transform: translateX(4px);
+    }
+  }
+
+  &__background--on {
+    transform: scale(80);
+  }
+  &__nav--on {
+    visibility: visible;
+    opacity: 100;
+    pointer-events: auto;
+    width: 100%;
+  }
+  &__button--on span {
+    background-color: transparent;
+  }
+  &__button--on span::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &__button--on span::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+}

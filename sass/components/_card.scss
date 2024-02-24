@@ -1,0 +1,133 @@
+.card {
+  // allows you to create 3D effects and depth on elements
+  // by defining the distance between the z=0 plane and the viewer
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  // must be set; otherwise this parent element will collapse
+  height: 73rem;
+
+  &__side {
+    height: 73rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // must be set, absolute-positioned element is out of flow!
+    width: 100%;
+    // the 2 sides of the cards are backface to each other;
+    // because they are at the same z-index
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    overflow: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+    }
+  }
+  // set the hover effect on card! not card__side!
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT-SIDE STYLING
+  // card__picture
+  &__picture {
+    background-size: cover;
+    height: 33rem;
+    // there're many options for the blend mode
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    // &--1 {
+    //   // mind the url, it's relative to the final style.css!
+    //   // blend the background-image with the linear-gradient;
+    //   background-image: url(../img/nat-5.jpg),
+    //     linear-gradient(
+    //       to right bottom,
+    //       $color-secondary-light,
+    //       $color-secondary-dark
+    //     );
+    // }
+  }
+  // card__heading
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $color-white;
+    text-align: right;
+
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.55),
+        rgba($color-secondary-dark, 0.35)
+      );
+    }
+  }
+
+  // card__details
+  &__details {
+    padding: 1rem 2.5rem;
+    line-height: 2;
+  }
+
+  // BACK-SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-discount {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}

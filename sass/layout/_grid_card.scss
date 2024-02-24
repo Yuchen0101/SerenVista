@@ -1,0 +1,8 @@
+.grid {
+  max-width: $grid-width;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: $gutter-horizontal;
+  row-gap: $gutter-vertical;
+}
