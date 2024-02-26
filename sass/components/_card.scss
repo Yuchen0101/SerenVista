@@ -5,10 +5,26 @@
   -moz-perspective: 150rem;
   position: relative;
   // must be set; otherwise this parent element will collapse
-  height: 73rem;
+  height: 80rem;
+
+  @include respond(tab-port) {
+    height: 80rem;
+  }
+
+  @include respond(phone) {
+    height: 70rem;
+  }
 
   &__side {
-    height: 73rem;
+    height: 80rem;
+    @include respond(tab-port) {
+      height: 80rem;
+    }
+
+    @include respond(phone) {
+      height: 70rem;
+    }
+
     transition: all 0.8s ease;
     position: absolute;
     top: 0;
@@ -51,6 +67,10 @@
   &__picture {
     background-size: cover;
     height: 33rem;
+    @include respond(tab-port) {
+      height: 28rem;
+    }
+
     // there're many options for the blend mode
     background-blend-mode: screen;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);

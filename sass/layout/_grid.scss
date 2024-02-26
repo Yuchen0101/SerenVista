@@ -1,10 +1,20 @@
 .row {
-  max-width: $grid-width;
-  // background-color: #eee;
+  max-width: $grid-width; // on tablet, the screen size is actually smaller than the grid-width
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
   margin: 0 auto;
+
   // all the rows except the last child
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
 
   // mixins
@@ -14,15 +24,25 @@
   // [class$="col-"]: element whose class ends($) with "col-"
   // [class*="col-"]: element whose class contains(*) "col-"
   [class^="col-"] {
-    // background-color: orangered;
     float: left;
+
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      // typical for grid!!!  -> one grid item each line on small screen
+      width: 100% !important;
     }
   }
 
   .col-1-of-2 {
-    // cal()
+    // calc()
     // #{$gutter-horizontal} to use variable
     // You can use different units for each value in your expression
     width: calc((100% - #{$gutter-horizontal}) / 2);
@@ -47,6 +67,7 @@
       ((100% - #{$gutter-horizontal} * 3) / 4) * 2 + #{$gutter-horizontal}
     );
   }
+
   .col-3-of-4 {
     width: calc(
       ((100% - #{$gutter-horizontal} * 3) / 4) * 3 + #{$gutter-horizontal} * 2

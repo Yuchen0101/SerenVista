@@ -6,6 +6,9 @@
   border-radius: 3px;
   padding: 6rem;
   padding-left: 9rem;
+  @include respond(phone) {
+    padding: 4rem;
+  }
   font-size: $default-font-size;
   // transform: skewX(-12deg);
 

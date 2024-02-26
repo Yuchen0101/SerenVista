@@ -29,7 +29,7 @@ function HomeNavigation() {
                 className="navigation__link"
                 onClick={() => setOn((on) => !on)}
               >
-                About Natours
+                About SerenVista
               </a>
             </li>
             <li className="navigation__item">

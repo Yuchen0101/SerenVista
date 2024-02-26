@@ -25,6 +25,10 @@ section {
     /* animation-delay: ; */
     /* animation-iteration-count: ;  execute for multiple times*/
     /* animation-timing-function: ; */
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
   }
 
   &--sub {
@@ -33,6 +37,9 @@ section {
     font-weight: 600;
     letter-spacing: 1.7rem;
     animation: moveInRight 3s ease-in-out;
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
   }
 }
 
@@ -53,6 +60,14 @@ section {
   // make the text tranparent!!
   color: transparent;
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);

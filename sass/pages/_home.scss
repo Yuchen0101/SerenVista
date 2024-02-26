@@ -32,6 +32,15 @@
 .section-cabins {
   background-color: $color-grey-light-1;
   padding: 25rem 0;
+
+  @include respond(phone) {
+    padding: 25rem 3rem;
+  }
+
+  @include respond(phone) {
+    padding-top: 20rem;
+    padding-bottom: 10rem;
+  }
   // because there's a wedge-effect of header
   // 75vh - 95vh = -20vh
   margin-top: -10rem;

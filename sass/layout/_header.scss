@@ -1,5 +1,10 @@
 .header {
   height: 95vh;
+
+  @include respond(tab-port) {
+    height: 100vh;
+  }
+
   z-index: 5;
   // we can use a color variable in rgba like this:
   background-image: linear-gradient(
@@ -13,6 +18,9 @@
 
   /*  a wedge effect: polygon(...coordinates in clockwise)*/
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  @include respond(tab-port) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 

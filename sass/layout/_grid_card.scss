@@ -1,8 +1,26 @@
 .grid {
   max-width: $grid-width;
+
+  @include respond(phone) {
+    padding: 0 1rem;
+  }
+
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @include respond(tab-land) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $gutter-horizontal-small;
+  }
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: $gutter-horizontal-small;
+  }
+  @include respond(phone) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   column-gap: $gutter-horizontal;
   row-gap: $gutter-vertical;
 }
